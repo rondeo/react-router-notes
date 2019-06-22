@@ -1,10 +1,7 @@
-import React from 'react';
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import Fab from '@material-ui/core/Fab'
-import Icon from '@material-ui/core/Icon'
-
+import NotesForm from './NoteForm'
 
 class App extends React.Component {
   constructor(props) {
@@ -22,11 +19,6 @@ class App extends React.Component {
     })
   }
 
-
-
-
-
-
     render () {
       console.log(this.state);
       return (
@@ -36,35 +28,12 @@ class App extends React.Component {
           </Typography>
 
           <Grid container justify='center' spacing={2}>
-            <Grid item xs={8}>
-              <Grid item xs={12}>
-                  <TextField
-                    value={this.state.title}
-                    onChange={this.updateField('title')}
-                    type='text'
-                    placeholder='Title for this note...'
-                    margin='normal'
-                    fullWidth
-                  />
-              </Grid>
-              <Grid item xs={12}>
-                  <TextField
-                    value={this.state.description}
-                    onChange={this.updateField('description')} 
-                    placeholder='Start taking notes'
-                    margin='normal'
-                    multiline
-                    rows='4'
-                    fullWidth
-                  />
-              </Grid>
-              <br/>
-              <Fab color='secondary'>
-                <Icon>edit_icon</Icon>
-              </Fab>
+            <NotesForm 
+              title={this.state.title}
+              description={this.state.description}
+              updateField={this.updateField}
+            />
             </Grid>
-          </Grid>
-
         </React.Fragment>
       )
     }
